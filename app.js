@@ -5,6 +5,7 @@ const express = require("express")
      mongoose =require("mongoose"),
      session = require('express-session'),
      app = express();
+     morgan = require('morgan')
 
 
 require('./config/passport')(passport);
@@ -43,6 +44,7 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
+app.use(morgan(`dev`))
 
 // Global variables
 app.use(function (req, res, next) {
@@ -57,9 +59,9 @@ app.use(function (req, res, next) {
 app.set("view engine", "ejs")
 
 
-app.get("/",(req,res)=>{
-    res.end(`wehbfjh`)
-})
+// Routes
+const routes = require(`./routers/_all`);
+app.use(routes);
 
 
 app.get('*', function (req, res) {
