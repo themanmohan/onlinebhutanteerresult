@@ -68,7 +68,19 @@
 <table>
     <tr>
         <th colspan=4 class="thbghead">BHUTAN</th>
-        </tr>
+        <tr>
+          <th class="thbg">Direct</th>
+          <th class="thbg">House</th>
+          <th class="thbg">Ending</th>
+      
+          <%if(currentUser){%>
+            <%if(currentUser.role.includes('admin')){%>
+         <th>Action</th>
+            <%}%>
+         <%}%>
+      
+        </tr>  
+      </tr>
         <%round2.forEach((data)=>{%>
           <tr>
       
