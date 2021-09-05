@@ -1,0 +1,55 @@
+<%- include(`../partials/root/head`) %>
+
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div>
+    <h6 class="dateclass">BHUTAN TEER CALENDAR</h6>
+    </div>
+    <hr style="width:50%;text-align:center;background-color:black;">
+    <%if(currentUser){%>
+        <%if(currentUser.role.includes('admin')){%>
+      <a href="/teercalender/addcalender" type="button" class="btn btn-sm mb-3  btn-dark">Add Teer Calender</a>
+      <%}%>
+    <%}%>
+<table>
+  <tr>
+
+    <th class="thbg">DATE</th>
+    <th class="thbg">DAY</th>
+    <th class="thbg">BHUTAN TEER</th>
+    <%if(currentUser){%>
+        <%if(currentUser.role.includes('admin')){%>
+          <th>Action</th>
+        <%}%>
+    <%}%>
+  </tr>
+  <%if(teercalender){%>
+    <%teercalender.forEach((data)=>{%>
+        <tr>
+            <td><%=data.date%></td>
+            <td><%=data.day%></td>
+            <td><%=data.nightteer%>/<%=data.dayteer%></td>
+            <%if(currentUser){%>
+                <%if(currentUser.role.includes('admin')){%>
+                    <td>
+                        <form action="/teercalender/<%=data._id %>/delete?_method=DELETE" method="POST">
+                        <button class="btn btn-sm  btn-dark text-center bg-info text-dark mb-3" > delete</button>
+                    </form>
+                    </td>
+                 <%}%>
+             <%}%>
+        </tr>
+    <%})%>
+  <%}%>
+</table>
+
+
+  
+<%- include(`../partials/root/elements/projectCard`) %>
+
+<%- include(`../partials/root/footer`) %>
+
+<%- include(`../partials/root/end`) %>

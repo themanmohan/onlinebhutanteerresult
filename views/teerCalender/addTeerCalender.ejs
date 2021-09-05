@@ -1,0 +1,44 @@
+<%- include(`../partials/root/head`) %>
+
+<link rel="stylesheet" type="text/css" href="/styles/admin/register.css">
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div class="register">
+    <h1>Add  Result</h1>
+    <form method="POST" action="/teercalender">
+      <p><input type="date" name="teercalender[date]"  placeholder="Enter Date"></p>
+      <p>
+        <select id="" placeholder="Enter Day" name=teercalender[day] >
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+      </p>
+      <p>
+        <select  name=teercalender[dayteer]>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+      </p>
+      <p>
+        <select id="myList" class="form-control" name=teercalender[nightteer]>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+      </p>
+      <p class="submit"><input type="submit" name="commitreg" value="Register"></p>
+    </form>
+  </div>
+  
+  <%- include(`../partials/root/elements/projectCard`) %>
+
+  <%- include(`../partials/root/footer`) %>
+
+  <%- include(`../partials/root/end`) %>
