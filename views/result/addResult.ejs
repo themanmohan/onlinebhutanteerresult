@@ -7,13 +7,12 @@
 <%- include(`../partials/root/header`) %>
 
 <div class="register">
-    <h1>Register to Bhutan Teer</h1>
-    <form method="post" action="/admin/register">
-      <p><input type="text" name="name" value="" placeholder="Enter your Name"></p>
-      <p><input type="text" name="email" value="" placeholder="Enter your Email"></p>
-      <p><input type="password" name="password" value="" placeholder="Enter your Password"></p>
-      <p><input type="password" name="confirmpassword" value="" placeholder="Confirm your Password"></p>
-    
+    <h1>Add  Result</h1>
+    <form method="POST" action="/result">
+      <p><input type="text" name="round1time" value="" placeholder="Enter Time for Round 1"></p>
+      <p><input type="text" name="round1result" value="" placeholder="Enter Data for Round 1"></p>
+      <p><input type="text" name="round2time" value="" placeholder="Enter Time for Round 2"></p>
+      <p><input type="text" name="round2result" value="" placeholder="Enter Data for Round 2"></p>
       </p>
       <p class="submit"><input type="submit" name="commitreg" value="Register"></p>
     </form>

@@ -31,18 +31,18 @@ router.post("/register", (req, res) => {
         name,
         email,
         password,
-        password2
+        confirmpassword
     } = req.body;
 
     let errors = [];
     //checking field is empty or not
-    if (!name || !email || !password || !password2) {
+    if (!name || !email || !password || !confirmpassword) {
         errors.push({
             msg: 'Please enter all fields'
         });
     }
     //checking password is same or not
-    if (password != password2) {
+    if (password != confirmpassword) {
         errors.push({
             msg: 'Passwords do not match'
         });
@@ -55,12 +55,12 @@ router.post("/register", (req, res) => {
     }
     //checking if there any error
     if (errors.length > 0) {
-        res.render('Users/register', {
+        res.render('admin/register', {
             errors,
             name,
             email,
             password,
-            password2
+            confirmpassword
         });
     } else {
         //checking if user exist or not
@@ -71,12 +71,12 @@ router.post("/register", (req, res) => {
                 errors.push({
                     msg: 'Email already exists'
                 });
-                res.render('Users/register', {
+                res.render('admin/register', {
                     errors,
                     name,
                     email,
                     password,
-                    password2
+                    confirmpassword
                 });
             } else {
                 const newUser = new User({
@@ -96,7 +96,7 @@ router.post("/register", (req, res) => {
                                     'error_msg',
                                     'You are now registered and can log in'
                                 );
-                                res.redirect('/users/login');
+                                res.redirect('/admin/login');
                             })
                             .catch(err => console.log(err));
                     });
@@ -110,7 +110,7 @@ router.post("/register", (req, res) => {
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/',
-        failureRedirect: '/users/login',
+        failureRedirect: '/admin/login',
         failureFlash: true
 
     })(req, res, next);

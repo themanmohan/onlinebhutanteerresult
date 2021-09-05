@@ -9,25 +9,104 @@
     <h6 class="dateclass">01-09-2021</h6>
     </div>
     <table>
+
+        <%if(currentUser){%>
+            <%if(currentUser.role.includes('admin')){%>
+                <a class="btn btn-sm mb-2 text-center  btn-success" href="/result/addresult">Add Result</a>
+            <%}%>
+        <%}%>
+
     <tr>
-    <th colspan=2 class="thbghead">BHUTAN TEER</th>
+    <th colspan=3 class="thbghead">BHUTAN TEER</th>
     </tr>
-      <tr>
-        <th class="thbg">F/R(XX:XX PM)</th>
-        <th class="thbg">S/R(XX:XX PM)</th>
-      </tr>
-      <tr>
-        <td>XX</td>
-        <td>XX</td>
-      </tr>
-    
+    <%if(result.length>0){%>
+        <%result.forEach((data)=>{%>
+            <tr>
+                <th class="thbg">F/R(<%=data.round1.time%>)</th>
+                <th class="thbg">S/R(<%=data.round2.time%>)</th>
+
+                <%if(currentUser){%>
+                    <%if(currentUser.role.includes('admin')){%>
+                    <th class="thbg" >Action</th>
+                    <%}%>
+                <%}%>
+
+            </tr>
+            <tr>
+                <td><%=data.round1.result%></td>
+                <td><%=data.round2.result%></td>
+                <%if(currentUser){%>
+                    <%if(currentUser.role.includes('admin')){%>
+                      <td>
+                        <form action="/result/<%=data._id %>/delete?_method=DELETE" method="POST">
+                            <button class="btn btn-sm  btn-dark text-center bg-white text-dark mb-3" class="">Delete
+                            </button>
+                        </form>
+                      </td>
+                   <%}%>
+                <%}%>
+            </tr>
+        <%})%>
+   <%}else{%>
+
+          <th class="thbg" >First Round [XX]</th>
+          <th class="thbg" >Second Round [XX]</th>
+        <tr>
+          <td>XX.XX</td>
+          <td>XX:XX</td>
+        </tr>   
+    <%}%>
+
     </table>
 
-    <%- include(`./partials/root/elements/projectCard`) %>
-    
-    </div>
-    
-    </main>
+    <main class="grid">
+        <article>
+            <a href="commonnumber.html">
+          <img src="/images/commonnumber.jpg" alt="Sample photo" >
+        </a>
+        </article>
+        <article>
+            <a href="#">
+          <img src="/images/teerbhutansocial.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="dreamnumber.html" >
+          <img src="/images/dreamnumber.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="analytics.html">
+          <img src="/images/analytics.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="predicttarget.html">
+          <img src="/images/predictedcounter.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="previousresult.html">
+          <img src="/images/previousresults.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="teercalendar.html">
+          <img src="/images/teercalendar.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="reputedcounters.html">
+          <img src="/images/reputedcounter.jpg" alt="Sample photo">
+        </a>
+        </article>
+        <article>
+            <a href="champions.html">
+          <img src="/images/champions.jpg" alt="Sample photo">
+        </a>
+        </article>
+      </main>
+     
 
     <%- include(`./partials/root/footer`) %>
 

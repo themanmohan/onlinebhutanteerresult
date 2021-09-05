@@ -1,3 +1,5 @@
+require(`dotenv`).config({ path:`process.env` });
+
 const express = require("express")
      methodOverride = require("method-override"),
      flash = require('connect-flash'),
@@ -11,6 +13,36 @@ const express = require("express")
 require('./config/passport')(passport);
 
 require("ejs")
+
+const dbURL = `mongodb://127.0.0.1:27017`;
+
+
+
+let dbNameToUse = `onlinebhutaanteerresult`,
+    dbURLToUse = `mongodb://127.0.0.1:27017/`
+
+if((process.env.MODE) && (process.env.MODE.toLowerCase().trim() === `prod`)){
+    dbNameToUse = `onlinebhutaanteerresultproduction`,
+    dbURLToUse = `mongodb://127.0.0.1:27017/`
+}
+
+
+mongoose.set(`runValidators`, true); // to run validate operators on update operations too
+
+mongoose.connect(dbURLToUse, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    dbName: dbNameToUse
+})
+.then((data) => console.log(`[ ${ dbNameToUse } ] DB Connected`))
+.catch((err) => {
+    console.log(`DB Not Connected`);
+    console.log(err);
+});
+
+
 
 app.use(express.static(__dirname + "/public"))
 
@@ -69,6 +101,4 @@ app.get('*', function (req, res) {
 });
 
 
-app.listen(9000, (err, data) => {
-    console.log("working")
-})
+app.listen(process.env.PORT, (err, data) =>console.log(`Server listening on ${ process.env.PORT }`))
