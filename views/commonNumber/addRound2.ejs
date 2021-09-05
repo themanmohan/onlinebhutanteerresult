@@ -1,0 +1,27 @@
+
+<%- include(`../partials/root/head`) %>
+
+<link rel="stylesheet" type="text/css" href="/styles/admin/register.css">
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div class="register">
+    <h1>Add Round 1 Common Number</h1>
+    <form method="post" action="/commonnumberround2">
+      <p><input type="date" name="round2[Date]"  placeholder="Enter Date" required></p>
+      <p><input type="text" name="round2[Direct]" placeholder="Enter Direct" required></p>
+      <p><input type="text" name="round2[House]"  placeholder="Enter your House" required></p>
+      <p><input type="text" name="round2[Ending]"  placeholder="Enter your Ending" required></p>
+    
+      </p>
+      <p class="submit"><input type="submit" name="commitreg" value="Register"></p>
+    </form>
+  </div>
+
+  <%- include(`../partials/root/elements/projectCard`) %>
+
+<%- include(`../partials/root/footer`) %>
+
+<%- include(`../partials/root/end`) %>

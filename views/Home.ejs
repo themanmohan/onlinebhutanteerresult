@@ -6,7 +6,7 @@
 <%- include(`./partials/root/header`) %>
 
 <div>
-    <h6 class="dateclass">01-09-2021</h6>
+    <h6 class="dateclass"><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric' , month: 'long' , day: '2-digit' }).format(new Date()) %></h6>
     </div>
     <table>
 

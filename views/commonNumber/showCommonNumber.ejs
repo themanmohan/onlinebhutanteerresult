@@ -1,0 +1,102 @@
+<%- include(`../partials/root/head`) %>
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div>
+    <h6 class="dateclass">
+      <%if(round1.length>0){%>
+      Common Number For<br />
+      <%=round1[0].Date%>
+   <%}%></h6>
+    </div>
+
+    <hr style="width:50%;text-align:center;background-color:black;">
+
+    <%if(currentUser){%>
+      <%if(currentUser.role.includes('admin')){%>
+         <a href="/commonnumberround1/addround1" type="button" class="btn btn-sm mb-3  btn-dark">Add for Round 1</a>
+      <%}%>
+    <%}%>
+
+<table>
+    <tr>
+        <th colspan=4 class="thbghead">BHUTAN</th>
+        </tr>
+  <tr>
+    <th class="thbg">Direct</th>
+    <th class="thbg">House</th>
+    <th class="thbg">Ending</th>
+
+    <%if(currentUser){%>
+      <%if(currentUser.role.includes('admin')){%>
+   <th>Action</th>
+      <%}%>
+   <%}%>
+
+  </tr>
+  <%round1.forEach((data)=>{%>
+    <tr>
+
+      <td><%=data.Direct%></td>
+      <td><%=data.House%></td>
+      <td><%=data.Ending%></td>
+      <%if(currentUser){%>
+          <%if(currentUser.role.includes('admin')){%>
+            <td>
+              <form action="/commonnumberround1/<%=data._id %>/delete?_method=DELETE" method="POST">
+                  <button class="btn btn-sm  btn-dark text-center bg-white text-dark mb-3" class="">Delete</button>
+              </form>
+            </td>
+        <%}%>
+      <%}%>
+
+    </tr>
+
+  <%})%>
+</table>
+
+<hr style="width:50%;text-align:center;background-color:black;">
+
+<%if(currentUser){%>
+  <%if(currentUser.role.includes('admin')){%>
+     <a href="/commonnumberround2/addround2" type="button" class="btn btn-sm mb-3  btn-dark">Add for Round 1</a>
+  <%}%>
+<%}%>
+
+<table>
+    <tr>
+        <th colspan=4 class="thbghead">BHUTAN</th>
+        </tr>
+        <%round2.forEach((data)=>{%>
+          <tr>
+      
+            <td><%=data.Direct%></td>
+            <td><%=data.House%></td>
+            <td><%=data.Ending%></td>
+            
+            <%if(currentUser){%>
+                <%if(currentUser.role.includes('admin')){%>
+                  <td>
+                    <form action="/commonnumberround2/<%=data._id %>/delete?_method=DELETE" method="POST">
+                        <button class="btn btn-sm  btn-dark text-center bg-white text-dark mb-3" class="">Delete</button>
+                    </form>
+                  </td>
+              <%}%>
+            <%}%>
+      
+          </tr>
+      
+        <%})%>
+
+
+</table>
+
+<p style="text-align:center;margin-top:5px;margin-left: 2px;margin-right: 2px">Disclaimer : These common numbers are purely based on certain calculations done using past results. There is no guarantee of the accuracy of these numbers.</p>
+
+<%- include(`../partials/root/elements/projectCard`) %>
+
+<%- include(`../partials/root/footer`) %>
+
+<%- include(`../partials/root/end`) %>
