@@ -8,6 +8,7 @@ const getCommonNumber = async (req, res) => {
         const round1 = await Round1.find()
         const round2 = await Round2.find()
         res.render("commonNumber/showCommonNumber", {
+            docTitle: `CommonNumber`,
             round1,
             round2
         })

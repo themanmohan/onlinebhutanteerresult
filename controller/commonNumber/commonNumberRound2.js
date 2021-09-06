@@ -2,7 +2,7 @@ const Round2 = require('../../model/commonNumber/commonNumberRound2')
 
 const addRound2 = async (req, res) => {
     try {
-        res.render("commonNumber/addRound2")
+        res.render("commonNumber/addRound2",{ docTitle: `Add CommonNumber Round2`,})
     } catch (error) {
        req.flash(
            'error_msg',

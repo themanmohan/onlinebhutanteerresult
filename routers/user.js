@@ -12,14 +12,14 @@ const express = require('express'),
 //@route     GET/users/login
 //@access    public
 router.get("/login", async (req, res) => {
-    res.render("admin/login")
+    res.render("admin/login",{ docTitle: `Admin login`})
 })
 
 //@desc      register form
 //@route     GET/users/register
 //@access    public
 router.get("/register", async (req, res) => {
-    res.render("admin/register")
+    res.render("admin/register",{ docTitle: `Admin Register`})
 })
 
 //@desc      register 
@@ -60,7 +60,8 @@ router.post("/register", (req, res) => {
             name,
             email,
             password,
-            confirmpassword
+            confirmpassword,
+            docTitle: `Admin login`
         });
     } else {
         //checking if user exist or not
@@ -76,7 +77,8 @@ router.post("/register", (req, res) => {
                     name,
                     email,
                     password,
-                    confirmpassword
+                    confirmpassword,
+                    docTitle: `Admin login`
                 });
             } else {
                 const newUser = new User({

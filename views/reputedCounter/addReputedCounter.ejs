@@ -1,0 +1,23 @@
+<%- include(`../partials/root/head`) %>
+
+<link rel="stylesheet" type="text/css" href="/styles/admin/register.css">
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div class="register">
+
+    <h1>Add  Reputed Counter</h1>
+    <form method="POST" action="/reputedcounter">
+      <p><input type="number" name="reputedcounter[licenseno]" value="" placeholder="Enter License No""></p>
+      <p><input type="text" name="reputedcounter[address]" value="" placeholder="Enter Address"></p>
+      <p class="submit"><input type="submit" name="commitreg" value="Register"></p>
+    </form>
+  </div>
+  
+  <%- include(`../partials/root/elements/projectCard`) %>
+
+  <%- include(`../partials/root/footer`) %>
+
+  <%- include(`../partials/root/end`) %>

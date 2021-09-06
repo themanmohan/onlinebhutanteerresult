@@ -5,7 +5,7 @@ const Result = require('../model/result')
 const addResult = async (req, res) => {
 
     try {
-        res.render("result/addResult")
+        res.render("result/addResult",{ docTitle: `Add Result`,})
     } catch (error) {
        req.flash(
            'error_msg',

@@ -1,7 +1,7 @@
 
 const showDreamNumberPage = async (req, res) => {
     try {
-        res.render("dreamNumber")
+        res.render("dreamNumber",{docTitle: `DreamNumber`})
     } catch (error) {
         req.flash(
             'error_msg',
