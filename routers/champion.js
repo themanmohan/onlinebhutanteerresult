@@ -5,6 +5,8 @@ const express = require('express'),
 
 router.get('/', TeerChampion.getTeerChampion)
 
+router.get('/analytics', TeerChampion.getAnalyticPage)
+
 router.get('/addteerchampion', isLoggedIn, authorize('admin'), TeerChampion.addTeerChampion)
 
 router.post('/', isLoggedIn, authorize('admin'), TeerChampion.createTeerChampion)

@@ -1,5 +1,23 @@
 const TeerChampion = require('../model/champion')
 
+const getAnalyticPage = async (req, res) => {
+
+    try {
+       
+        const analytics = await TeerChampion.find()
+       
+        res.render("analytics", {
+            analytics,
+            docTitle: `Analytics`
+        })
+    } catch (error) {
+        req.flash(
+            'error_msg',
+            error.message
+        );
+        res.redirect("/")
+    }
+}
 
 const getTeerChampion = async (req, res) => {
 
@@ -82,5 +100,6 @@ module.exports = {
     createTeerChampion,
     getTeerChampion,
     addTeerChampion,
-    deleteTeerChampion
+    deleteTeerChampion,
+    getAnalyticPage
 }
