@@ -6,7 +6,7 @@ const getTeerCalender = async (req, res) => {
 
         const teercalender = await TeerCalender.find()
         res.render("teerCalender/ShowTeerCalender", {
-            docTitle: `ReputedCounter`,
+            docTitle: `TeerCalender`,
             teercalender
         })
     } catch (error) {
@@ -20,7 +20,7 @@ const getTeerCalender = async (req, res) => {
 
 const addTeerCalender = async (req, res) => {
     try {
-        res.render("teerCalender/addTeerCalender",{ docTitle: `Add ReputedCounter`,})
+        res.render("teerCalender/addTeerCalender",{ docTitle: `Add TeerCalender`,})
     } catch (error) {
         
        req.flash(

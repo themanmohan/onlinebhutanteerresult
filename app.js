@@ -97,7 +97,7 @@ app.use(routes);
 
 
 app.get('*', function (req, res) {
-    res.render('404');
+    res.render('404',{docTitle:`NOT FOUND`});
 });
 
 

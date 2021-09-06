@@ -11,7 +11,7 @@ const teerCalenderRoute = require(`./teerCalender`);
 const dreamNumberRoute = require(`./dreamNumber`);
 const reputedCounterRoute = require(`./reputedCounter`);
 const teerChampionRoute = require(`./champion`);
-
+const predictTargetRoute = require(`./predictTaregt`);
 
 router.use(`/admin`, adminRoutes);
 router.use(`/`, indexRoutes);
@@ -23,5 +23,6 @@ router.use(`/teercalender`, teerCalenderRoute);
 router.use(`/dreamnumber`, dreamNumberRoute);
 router.use(`/reputedcounter`, reputedCounterRoute);
 router.use(`/teerchampion`, teerChampionRoute);
+router.use(`/predicttarget`, predictTargetRoute);
 
 module.exports = router;

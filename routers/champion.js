@@ -4,10 +4,8 @@ const express = require('express'),
       { authorize,isLoggedIn } = require("../middleware/auth");
 
 router.get('/', TeerChampion.getTeerChampion)
+
 router.get('/addteerchampion', isLoggedIn, authorize('admin'), TeerChampion.addTeerChampion)
-
-
-
 
 router.post('/', isLoggedIn, authorize('admin'), TeerChampion.createTeerChampion)
 
