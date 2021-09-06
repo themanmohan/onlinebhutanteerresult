@@ -10,6 +10,7 @@ const commonNumber = require(`./commonNumber/index`);
 const teerCalenderRoute = require(`./teerCalender`);
 const dreamNumberRoute = require(`./dreamNumber`);
 const reputedCounterRoute = require(`./reputedCounter`);
+const teerChampionRoute = require(`./champion`);
 
 
 router.use(`/admin`, adminRoutes);
@@ -21,5 +22,6 @@ router.use(`/commonnumber`, commonNumber);
 router.use(`/teercalender`, teerCalenderRoute);
 router.use(`/dreamnumber`, dreamNumberRoute);
 router.use(`/reputedcounter`, reputedCounterRoute);
+router.use(`/teerchampion`, teerChampionRoute);
 
 module.exports = router;
