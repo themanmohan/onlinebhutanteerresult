@@ -5,13 +5,13 @@
 <%- include(`../partials/root/header`) %>
 
 <div>
-    <h6 class="dateclass">01-09-2021</h6>
+    <h6 class="dateclass"><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric' , month: 'long' , day: '2-digit' }).format(new Date()) %></h6>
     </div>
 
   
     <%if(currentUser){%>
         <%if(currentUser.role.includes('admin')){%>
-            <a href="/predicttarget/addpredicttarget" type="button" class="btn btn-sm mb-3  btn-dark">Add ReputedCounter</a>
+            <a href="/predicttarget/addpredicttarget" type="button" class="btn btn-sm mb-3  btn-dark">Add Predict Target</a>
         <%}%>
     <%}%>
     

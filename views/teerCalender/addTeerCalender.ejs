@@ -7,11 +7,11 @@
 <%- include(`../partials/root/header`) %>
 
 <div class="register">
-    <h1>Add  Result</h1>
+    <h1>Add  Teer Calender</h1>
     <form method="POST" action="/teercalender">
-      <p><input type="date" name="teercalender[date]"  placeholder="Enter Date"></p>
+      <p><input type="date" name="teercalender[date]"  placeholder="Enter Date" required></p>
       <p>
-        <select id="" placeholder="Enter Day" name=teercalender[day] >
+        <select id="" placeholder="Enter Day" name=teercalender[day] required>
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
             <option value="Wednesday">Wednesday</option>
@@ -22,18 +22,18 @@
         </select>
       </p>
       <p>
-        <select  name=teercalender[dayteer]>
+        <select  name=teercalender[dayteer] required>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
       </p>
       <p>
-        <select id="myList" class="form-control" name=teercalender[nightteer]>
+        <select id="myList" class="form-control" name=teercalender[nightteer] required>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
       </p>
-      <p class="submit"><input type="submit" name="commitreg" value="Register"></p>
+      <p class="submit"><input type="submit" name="commitreg" value="Add Teer Calender"></p>
     </form>
   </div>
   

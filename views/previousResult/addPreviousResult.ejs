@@ -1,0 +1,25 @@
+<%- include(`../partials/root/head`) %>
+
+<link rel="stylesheet" type="text/css" href="/styles/admin/register.css">
+
+<%- include(`../partials/root/head-end`) %>
+
+<%- include(`../partials/root/header`) %>
+
+<div class="register">
+
+    <h1>Add Previous Result</h1>
+    <form method="POST" action="/previousresult">
+      <p><input type="text" name="previousresult[city]" value="" placeholder="Enter city" required></p>
+      <p><input type="date" name="previousresult[date]" value="" placeholder="Enter Date" required></p>
+      <p><input type="text" name="previousresult[firstround]" value="" placeholder="Enter firstround" required></p>
+      <p><input type="text" name="previousresult[secondround]" value="" placeholder="Enter secondround" required></p>
+      <p class="submit"><input type="submit" name="commitreg" value="Add Previous Result"></p>
+    </form>
+  </div>
+  
+  <%- include(`../partials/root/elements/projectCard`) %>
+
+  <%- include(`../partials/root/footer`) %>
+
+  <%- include(`../partials/root/end`) %>
